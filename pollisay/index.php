@@ -73,7 +73,7 @@ function nextquestion(){
 		
 		question[0].innerHTML = current['question'];
 		//sharebox.empty();
-		share = location.origin + location.pathname+"?polly="+elected+"&q"+current['id'];
+		share = location.origin + location.pathname+"?polly="+elected+"&q="+current['id'];
 		sharebox.children()[0].value = share;
 		switch(current['type']){
 			case 'comp':
@@ -124,7 +124,8 @@ function check(data){
 			increment_score(2);
 		}else{
 			question[0].innerHTML += " <span class='wrong'>Wrong..</span>";
-		}		
+		}
+		question[0].innerHTML += "  Click again to proceed.";
 		for(i = 0; i < bubble.children().length; i++){
 			if(bubble.children()[i].innerHTML == current[current['ans']]){
 				bubble.children()[i].classList.add("right");
@@ -208,7 +209,18 @@ if($get("polly") == ""){
 	player.hide();
 }else{
 	setpolly($get("polly"));
-}
+}/*
+if($get("q") != ""){
+	var temp = Array();
+	var qq = $get("q");
+	for(i = 0; i < mydata.length; i++){
+		if(mydata[i]['id'] == qq){
+			
+		}else{
+			temp.push(my)
+		}
+	}
+}*/
 
 //getquestions();nextquestion();
 </script>
